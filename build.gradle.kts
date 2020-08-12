@@ -6,8 +6,8 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.pablocasia.kotorra"
-version = "1.0.0"
+group = Configuration.group
+version = Configuration.version
 
 repositories {
     gradlePluginPortal()
@@ -49,9 +49,9 @@ kotlin {
             implementation(kotlin("stdlib-jdk7"))
         }
     }
-    val androidTest by sourceSets.getting
-    val iosMain by sourceSets.getting
-    val iosTest by sourceSets.getting
+    val androidTest by sourceSets.getting {}
+    val iosMain by sourceSets.getting {}
+    val iosTest by sourceSets.getting {}
     val jsMain by sourceSets.getting {
         dependencies {
             implementation(kotlin("stdlib-js"))
@@ -67,7 +67,7 @@ kotlin {
             implementation(kotlin("stdlib-jdk7"))
         }
     }
-    val jvmTest by sourceSets.getting
+    val jvmTest by sourceSets.getting {}
 }
 
 android {
@@ -86,9 +86,9 @@ project.afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("maven") {
-                groupId = "com.pablocasia.kotorra"
-                artifactId = "kotorra-android"
-                version = "1.0.0"
+                groupId = Configuration.group
+                artifactId = Configuration.Android.artifactId
+                version = Configuration.version
                 artifact("${project.buildDir}/outputs/aar/${project.name}-release.aar")
 
                 pom {
