@@ -133,7 +133,7 @@ object TestClass {
 }
 ``` 
 
-![image](/assets/android.png)
+![image](/assets/android-screenshot.png)
  
 #### iOS
 // TODO
